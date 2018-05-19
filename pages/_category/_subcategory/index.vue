@@ -1,17 +1,11 @@
 <template>
     <div>
-        <h1>{{ category.title }}</h1>
+        <h1>{{ category.title }} / {{ subcategory.title }}</h1>
         <div v-html="content"></div>
-        <div>
-            <h2>Subcategories</h2>
-            <div v-for="subcategory in category.subcategories" :key="`subcategory-link-${ subcategory.slug }`">
-                <a :href="`/${ category.slug }/${ subcategory.slug }`">{{ subcategory.title }}</a>
-            </div>
-        </div>
         <div>
             <h2>All categories</h2>
             <div v-for="category in categories" :key="`category-link-${ category.slug }`">
-                <a :href="category.slug">{{ category.title }}</a>
+                <a :href="`/${ category.slug }`">{{ category.title }}</a>
             </div>
         </div>
     </div>
@@ -33,11 +27,15 @@ export default {
         let category = await app.$axios.$get(`categories?slug=${ params.category }&_embed=subcategories`);
         category = category[0];
 
-        let content = require(`~/contents/${ category.content }`);
+        let subcategory = await app.$axios.$get(`subcategories?slug=${ params.subcategory }`);
+        subcategory = subcategory[0];
+
+        let content = require(`~/contents/${ subcategory.content }`);
 
         return {
             categories,
             category,
+            subcategory,
             content
         }
     }
