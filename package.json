@@ -1,0 +1,22 @@
+{
+  "name": "tutorial-templates",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nuxt",
+    "build": "nuxt build",
+    "start": "nuxt start",
+    "api": "json-server --watch api/db.json --port=3011"
+  },
+  "dependencies": {
+    "@nuxtjs/axios": "^5.3.1",
+    "@nuxtjs/markdownit": "^1.2.1",
+    "dotenv": "^5.0.1",
+    "json-server": "^0.12.2",
+    "markdown-it-highlightjs": "^3.0.0",
+    "node-sass": "^4.9.0",
+    "nuxt": "^1.4.0",
+    "sass-loader": "^7.0.1"
+  }
+}
