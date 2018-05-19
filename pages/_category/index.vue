@@ -21,9 +21,9 @@
 export default {
     head(){
         return {
-            title: this.category.title,
+            title: this.subcategory.title,
             meta: [
-                { name: 'description', content: this.category.meta.description }
+                { name: 'description', content: this.subcategory.meta.description }
             ]
         }
     },
